@@ -18,16 +18,17 @@ public class ToDoRepo {
         return new ArrayList<>(todos.values());
     }
 
-    public void addToDosToList(ToDo toDo) {
-         todos.put(toDo.getId(),toDo);
+    public ToDo addToDosToList(ToDo toDo) {
+        todos.put(toDo.getId(),toDo);
+        return todos.get(toDo.getId());
     }
 
     public ToDo getToDosById(String id) {
         return todos.get(id);
     }
 
-    public void editRoDosByID(String id, ToDo toDo) {
-        todos.put(id, toDo);
+    public ToDo editRoDosByID(String id, ToDo toDo) {
+        return todos.put(id, toDo);
     }
 
     public List<ToDo> deleteToDosByID(String id) {

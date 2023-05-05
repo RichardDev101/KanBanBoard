@@ -19,22 +19,21 @@ public class KanbanService {
         return toDoRepo.listToDosAsList();
     }
 
-    public void addToDos(ToDo toDo) {
+    public ToDo addToDos(ToDo toDo) {
         toDo.setId(uuid.getUUID());
-        toDoRepo.addToDosToList(toDo);
+        return toDoRepo.addToDosToList(toDo);
     }
 
     public ToDo getToDo(String id) {
         return toDoRepo.getToDosById(id);
     }
 
-    public void editToDos(String id, ToDo toDo) {
-        toDoRepo.editRoDosByID(id, toDo);
+    public ToDo editToDos(String id, ToDo toDo) {
+        return toDoRepo.editRoDosByID(id, toDo);
 
     }
 
     public List<ToDo> deleteToDos(String id) {
         return toDoRepo.deleteToDosByID(id);
-
     }
 }

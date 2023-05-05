@@ -19,25 +19,27 @@ public class KanbanController {
     public List<ToDo> listToDos(){
         return kanbanService.listToDos();
     }
-
     @PostMapping("api/todo")
-    public void  addToDos(@RequestBody ToDo toDo){
-        kanbanService.addToDos(toDo);
+    public ToDo addToDos(@RequestBody ToDo toDo){
+        return kanbanService.addToDos(toDo);
     }
     @GetMapping("api/todo/{id}")
     public ToDo getToDo(@PathVariable String id){
         return kanbanService.getToDo(id);
     }
 
+
+
     @PutMapping("api/todo/{id}")
-    public void editToDos(@PathVariable String id , @RequestBody ToDo toDo){
+    public ToDo editToDos(@PathVariable String id , @RequestBody ToDo toDo){
         kanbanService.editToDos(id, toDo);
+        return kanbanService.getToDo(id);
     }
+
 
     @DeleteMapping("api/todo/{id}")
     public List<ToDo>  deleteToDos(@PathVariable String id){
         return kanbanService.deleteToDos(id);
-
     }
 
 }
