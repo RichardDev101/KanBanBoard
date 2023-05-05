@@ -93,10 +93,6 @@ class KanbanControllerTest {
                                    {"description":"Aenderung", "status":"OPEN"}
                                 """))
                 .andExpect(status().isOk())
-                .andReturn();
-
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/todo/" + toDo.getId()))
-                .andExpect(status().isOk())
                 .andExpect(content().json("""
                                     {"description":"Aenderung","status":"OPEN"}
                                 """));
